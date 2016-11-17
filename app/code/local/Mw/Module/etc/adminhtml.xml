@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config>
+<config>
+    <menu>
+        <Mw>
+            <title>MW Module</title>
+            <sort_order>999</sort_order>
+            <children>
+                <userlogin>
+                    <title>Customer login and logout</title>
+                    <sort_order>99</sort_order>
+                    <action>adminhtml/customerlogin/index</action>
+                </userlogin>
+            </children>
+        </Mw>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <Mw>
+                        <title>MW Top Menu</title>
+                        <sort_order>100</sort_order>
+                        <children>
+                            <userlogin translate="title">
+                            <title>Userlogin</title>
+                            </userlogin>
+                        </children>
+                    </Mw>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+</config>

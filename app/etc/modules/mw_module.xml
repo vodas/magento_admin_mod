@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Mw_Module>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mw_Module>
+    </modules>
+</config>

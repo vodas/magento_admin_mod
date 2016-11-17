@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mw_Module>
+            <version>1.0.0</version>
+        </Mw_Module>
+    </modules>
+
+    <global>
+        <events>
+            <customer_login>
+                <observers>
+                    <mw_module_observer>
+                        <type>singleton</type>
+                        <class>Mw_Module_Model_Observer</class>
+                        <method>userLogin</method>
+                    </mw_module_observer>
+                </observers>
+            </customer_login>
+            <customer_logout>
+                <observers>
+                    <mw_module_observer>
+                        <type>singleton</type>
+                        <class>Mw_Module_Model_Observer</class>
+                        <method>userLogout</method>
+                    </mw_module_observer>
+                </observers>
+            </customer_logout>
+        </events>
+
+        <resources>
+            <mw_module_setup>
+                <setup>
+                    <module>Mw_Module</module>
+                </setup>
+            </mw_module_setup>
+        </resources>
+
+        <models>
+            <mw_module>
+                <class>Mw_Module_Model</class>
+                <resourceModel>mw_module_resource</resourceModel>
+            </mw_module>
+
+            <mw_module_resource>
+                <class>Mw_Module_Model_Resource</class>
+                <entities>
+                    <userlogin>
+                        <table>mw_userlogin</table>
+                    </userlogin>
+                </entities>
+            </mw_module_resource>
+
+        </models>
+
+
+        <blocks>
+            <mw_module>
+                <class>Mw_Module_Block</class>
+            </mw_module>
+        </blocks>
+
+        <helpers>
+            <mw_module>
+                <class>Mw_Module_Helper</class>
+            </mw_module>
+        </helpers>
+
+
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <args>
+                    <modules>
+                        <mw_module before="Mage_Adminhtml">Mw_Module</mw_module>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <customconfig_options>
+                                            <title>MW Module section</title>
+                                        </customconfig_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+</config>
